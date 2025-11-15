@@ -1,0 +1,61 @@
+name: URL Watch
+
+on:
+  schedule:
+    # Run every day at 4:00 AM
+    - cron: '0 4 * * *'
+  workflow_dispatch: # Allow manual runs
+
+jobs:
+  urlwatch:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq curl
+      
+      - name: Install Python dependencies
+        run: |
+          pip install urlwatch beautifulsoup4 html2text pyyaml requests keyring keyrings.alt lxml cssselect
+      
+      - name: Create urlwatch directory
+        run: |
+          mkdir -p ~/.urlwatch
+      
+      - name: Copy configuration files
+        run: |
+          cp data/urls.yaml ~/.urlwatch/urls.yaml
+          cp data/hooks.py ~/.urlwatch/hooks.py
+      
+      - name: Create urlwatch config with secret
+        run: |
+          sed "s|\${SLACK_WEBHOOK_URL}|${{ secrets.SLACK_WEBHOOK_URL }}|g" data/urlwatch.yaml > ~/.urlwatch/urlwatch.yaml
+      
+      - name: Restore cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.urlwatch/cache.db
+          key: urlwatch-cache-${{ runner.os }}
+          restore-keys: |
+            urlwatch-cache-
+      
+      - name: Run urlwatch
+        run: |
+          urlwatch --urls ~/.urlwatch/urls.yaml --config ~/.urlwatch/urlwatch.yaml --hooks ~/.urlwatch/hooks.py --cache ~/.urlwatch/cache.db
+      
+      - name: Save cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.urlwatch/cache.db
+          key: urlwatch-cache-${{ runner.os }}-${{ github.run_id }}
+

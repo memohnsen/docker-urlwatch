@@ -8,5 +8,5 @@ report:
   text:
     footer: false
   slack:
-    webhook_url: https://hooks.slack.com/services/XXXXXXXXX/YYYYYYYYY/ZZZZZZZZZZZZZZZZZZZZZZZZ
+    webhook_url: ${SLACK_WEBHOOK_URL}
     enabled: true

@@ -1,105 +1,113 @@
-urlwatch
-========
+# urlwatch
 
-[![](https://github.com/easypi/docker-urlwatch/actions/workflows/build.yaml/badge.svg)](https://github.com/EasyPi/docker-urlwatch)
+[urlwatch][1] is a tool for monitoring webpages for updates. This repository uses GitHub Actions to run urlwatch automatically on a schedule.
 
-[![](http://dockeri.co/image/easypi/urlwatch)](https://hub.docker.com/r/easypi/urlwatch)
+## Setup
 
-[urlwatch][1] is a tool for monitoring webpages for updates.
+1. **Fork or clone this repository** to your GitHub account
 
-## docker-compose.yml
+2. **Configure your URLs to watch** by editing `data/urls.yaml`
+
+3. **Set up Slack notifications** (optional):
+   - Go to https://api.slack.com/apps
+   - Create a new app or select an existing one
+   - Go to "Incoming Webhooks" and activate it
+   - Add a new webhook to your workspace
+   - Copy the webhook URL
+   - Update `data/urlwatch.yaml` with your webhook URL:
+     ```yaml
+     report:
+       slack:
+         webhook_url: https://hooks.slack.com/services/YOUR/WEBHOOK/URL
+         enabled: true
+     ```
+
+4. **Push to GitHub** - The workflow will automatically run every 30 minutes
+
+## How It Works
+
+- GitHub Actions runs the workflow on a schedule (every 30 minutes)
+- urlwatch checks all URLs in `data/urls.yaml`
+- When changes are detected, notifications are sent via Slack (if configured)
+- The cache is stored between runs using GitHub Actions cache
+
+## Configuration Files
+
+### `data/urls.yaml`
+
+Add websites to monitor. Each entry should look like:
 
 ```yaml
-version: "3.8"
-services:
-  urlwatch:
-    image: easypi/urlwatch
-    volumes:
-      - ./data:/root/.urlwatch
-    environment:
-      - EDITOR=/usr/bin/vi
-    restart: unless-stopped
+---
+name: My Website
+url: https://example.com
+user_visible_url: https://example.com
+filter:
+- strip:
 ```
 
-## urls.yaml
+For more complex filtering, see the [urlwatch documentation][1].
+
+### `data/urlwatch.yaml`
+
+Main configuration file. Configure:
+- Job defaults (error handling, etc.)
+- Report settings (Slack, email, etc.)
+
+### `data/hooks.py`
+
+Custom Python hooks for advanced filtering and custom reporters.
+
+## Customizing the Schedule
+
+Edit `.github/workflows/urlwatch.yml` and change the cron schedule:
 
 ```yaml
----
-
-name: urlwatch
-url: https://github.com/thp/urlwatch/tags
-user_visible_url: https://github.com/thp/urlwatch
-filter:
-- xpath: '(//h4[@data-test-selector="tag-title"]/a)[1]'
-- html2text: re
-- strip:
-
----
-
-name: shadowsocks-libev
-url: https://api.github.com/repos/shadowsocks/shadowsocks-libev/releases/latest
-user_visible_url: https://github.com/shadowsocks/shadowsocks-libev
-filter:
-- shellpipe: 'jq -r .tag_name'
-- strip:
-
----
-
-name: easypi
-url: https://www.nslookup.io/api/v1/records
-user_visible_url: https://www.nslookup.io/domains/easypi.duckdns.org/dns-records/#authoritative
-method: POST
-headers:
-  Content-Type: application/json
-data: '{"domain":"easypi.duckdns.org","dnsServer":"authoritative"}'
-filter:
-- jq:
-    query: '.records.a.response.answer[0].ipInfo.query'
-- re.sub:
-    pattern: '"'
-    repl: ''
-
-...
+on:
+  schedule:
+    - cron: '*/30 * * * *'  # Every 30 minutes
+    # - cron: '*/15 * * * *'  # Every 15 minutes
+    # - cron: '0 * * * *'     # Every hour
 ```
 
-## up and running
+See [cron syntax documentation](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule) for details.
+
+## Manual Runs
+
+You can manually trigger a run from the GitHub Actions tab:
+1. Go to your repository on GitHub
+2. Click "Actions"
+3. Select "URL Watch" workflow
+4. Click "Run workflow"
+
+## Testing Locally
+
+To test your configuration locally:
 
 ```bash
-$ docker-compose up -d
-$ docker-compose exec urlwatch sh
->>> urlwatch --test-reporter slack
-Successfully sent message to Slack
->>> urlwatch --list
-1: https://github.com/thp/urlwatch/releases/latest
-2: https://github.com/shadowsocks/shadowsocks-libev/releases/latest
-3: https://www.nslookup.io/domains/easypi.duckdns.org/dns-records/#authoritative
->>> urlwatch --test-filter 2
-v3.3.5
->>> exit
+# Install urlwatch
+pip install urlwatch beautifulsoup4 html2text pyyaml requests keyring keyrings.alt lxml cssselect
+
+# Create config directory
+mkdir -p ~/.urlwatch
+
+# Copy config files
+cp data/urls.yaml ~/.urlwatch/urls.yaml
+cp data/urlwatch.yaml ~/.urlwatch/urlwatch.yaml
+cp data/hooks.py ~/.urlwatch/hooks.py
+
+# Test
+urlwatch --test-reporter slack
+urlwatch --list
+urlwatch  # Run a check
 ```
 
-## customizing cron schedule
+## Benefits Over Docker
 
-### Create a crontab file
-
-```
-*/30 * * * * cd /root/.urlwatch && urlwatch --urls urls.yaml --config urlwatch.yaml --hooks hooks.py --cache cache.db
-*/15 * * * * cd /root/.urlwatch && urlwatch --urls urls-every-15m.yaml --config urlwatch.yaml --hooks hooks.py --cache cache.db
-```
-
-See the [crontab manpage for details on format](https://man7.org/linux/man-pages/man5/crontab.5.html#DESCRIPTION).
-
-### Mount the crontab file as a docker volume
-
-```yaml
-version: "3.8"
-services:
-  urlwatch:
-    image: easypi/urlwatch
-    volumes:
-      - ./data:/root/.urlwatch
-      - ./data/crontab:/etc/crontabs/root
-    restart: unless-stopped
-```
+- ✅ Runs 24/7 on GitHub's servers (no need to keep your computer on)
+- ✅ Free for public repositories
+- ✅ No local setup required
+- ✅ Automatic updates when you push changes
+- ✅ View run history and logs in GitHub
 
 [1]: https://github.com/thp/urlwatch

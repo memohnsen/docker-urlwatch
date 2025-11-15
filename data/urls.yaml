@@ -1,36 +1,62 @@
 ---
-
-name: urlwatch
-url: https://github.com/thp/urlwatch/tags
-user_visible_url: https://github.com/thp/urlwatch
+name: USA Weightlifting - American Records
+url: https://www.usaweightlifting.org/american-records
+user_visible_url: https://www.usaweightlifting.org/american-records
 filter:
-- xpath: '(//h4[@data-test-selector="tag-title"]/a)[1]'
-- html2text: re
 - strip:
 
 ---
-
-name: shadowsocks-libev
-url: https://api.github.com/repos/shadowsocks/shadowsocks-libev/releases/latest
-user_visible_url: https://github.com/shadowsocks/shadowsocks-libev
+name: USA Masters Weightlifting - Results
+url: https://usamastersweightlifting.com/results
+user_visible_url: https://usamastersweightlifting.com/results
 filter:
-- shellpipe: 'jq -r .tag_name'
 - strip:
 
 ---
-
-name: easypi
-url: https://www.nslookup.io/api/v1/records
-user_visible_url: https://www.nslookup.io/domains/easypi.duckdns.org/dns-records/#authoritative
-method: POST
-headers:
-  Content-Type: application/json
-data: '{"domain":"easypi.duckdns.org","dnsServer":"authoritative"}'
+name: USA Masters Weightlifting - Qualifying Totals
+url: https://usamastersweightlifting.com/qualifying-totals
+user_visible_url: https://usamastersweightlifting.com/qualifying-totals
 filter:
-- jq:
-    query: '.records.a.response.answer[0].ipInfo.query'
-- re.sub:
-    pattern: '"'
-    repl: ''
+- strip:
 
-...
+---
+name: USA Masters Weightlifting - Events
+url: https://usamastersweightlifting.com/events
+user_visible_url: https://usamastersweightlifting.com/events
+filter:
+- strip:
+
+---
+name: USA Masters Weightlifting - Masters Records & Grand Slam
+url: https://usamastersweightlifting.com/masters-records-grand-slam
+user_visible_url: https://usamastersweightlifting.com/masters-records-grand-slam
+filter:
+- strip:
+
+---
+name: USA Weightlifting - International Squad Standings
+url: https://www.usaweightlifting.org/resources/athlete-information-and-programs/international-squad-standings
+user_visible_url: https://www.usaweightlifting.org/resources/athlete-information-and-programs/international-squad-standings
+filter:
+- strip:
+
+---
+name: USA Weightlifting - Selection Procedures
+url: https://www.usaweightlifting.org/resources/athlete-information-and-programs/selection-procedures
+user_visible_url: https://www.usaweightlifting.org/resources/athlete-information-and-programs/selection-procedures
+filter:
+- strip:
+
+---
+name: Wisconsin Weightlifting - Records
+url: https://www.wisconsinweightlifting.org/records
+user_visible_url: https://www.wisconsinweightlifting.org/records
+filter:
+- strip:
+
+---
+name: Indiana Weightlifting - State Records
+url: https://www.indianaweightlifting.com/state-records
+user_visible_url: https://www.indianaweightlifting.com/state-records
+filter:
+- strip:
