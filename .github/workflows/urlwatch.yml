@@ -49,6 +49,10 @@ jobs:
           restore-keys: |
             urlwatch-cache-
       
+      - name: Clear cache (fresh start with new filters)
+        run: |
+          rm -f ~/.urlwatch/cache.db
+      
       - name: Run urlwatch
         run: |
           urlwatch --urls ~/.urlwatch/urls.yaml --config ~/.urlwatch/urlwatch.yaml --hooks ~/.urlwatch/hooks.py --cache ~/.urlwatch/cache.db
