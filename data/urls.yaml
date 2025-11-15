@@ -3,6 +3,20 @@ name: USA Weightlifting - American Records
 url: https://www.usaweightlifting.org/american-records
 user_visible_url: https://www.usaweightlifting.org/american-records
 filter:
+- re.sub:
+    pattern: 'nonce="[^"]*"'
+    repl: ''
+- re.sub:
+    pattern: 'nonce=''[^'']*'''
+    repl: ''
+- re.sub:
+    pattern: 'nonce=[^\s>]*'
+    repl: ''
+- re.sub:
+    pattern: '<script[^>]*>.*?</script>'
+    repl: ''
+    flags: [DOTALL, IGNORECASE]
+- html2text: re
 - strip:
 
 ---
@@ -10,6 +24,20 @@ name: USA Masters Weightlifting - Results
 url: https://usamastersweightlifting.com/results
 user_visible_url: https://usamastersweightlifting.com/results
 filter:
+- re.sub:
+    pattern: 'nonce="[^"]*"'
+    repl: ''
+- re.sub:
+    pattern: 'nonce=''[^'']*'''
+    repl: ''
+- re.sub:
+    pattern: 'nonce=[^\s>]*'
+    repl: ''
+- re.sub:
+    pattern: '<script[^>]*>.*?</script>'
+    repl: ''
+    flags: [DOTALL, IGNORECASE]
+- html2text: re
 - strip:
 
 ---
@@ -17,6 +45,20 @@ name: USA Masters Weightlifting - Qualifying Totals
 url: https://usamastersweightlifting.com/qualifying-totals
 user_visible_url: https://usamastersweightlifting.com/qualifying-totals
 filter:
+- re.sub:
+    pattern: 'nonce="[^"]*"'
+    repl: ''
+- re.sub:
+    pattern: 'nonce=''[^'']*'''
+    repl: ''
+- re.sub:
+    pattern: 'nonce=[^\s>]*'
+    repl: ''
+- re.sub:
+    pattern: '<script[^>]*>.*?</script>'
+    repl: ''
+    flags: [DOTALL, IGNORECASE]
+- html2text: re
 - strip:
 
 ---
@@ -24,6 +66,20 @@ name: USA Masters Weightlifting - Events
 url: https://usamastersweightlifting.com/events
 user_visible_url: https://usamastersweightlifting.com/events
 filter:
+- re.sub:
+    pattern: 'nonce="[^"]*"'
+    repl: ''
+- re.sub:
+    pattern: 'nonce=''[^'']*'''
+    repl: ''
+- re.sub:
+    pattern: 'nonce=[^\s>]*'
+    repl: ''
+- re.sub:
+    pattern: '<script[^>]*>.*?</script>'
+    repl: ''
+    flags: [DOTALL, IGNORECASE]
+- html2text: re
 - strip:
 
 ---
@@ -31,6 +87,20 @@ name: USA Masters Weightlifting - Masters Records & Grand Slam
 url: https://usamastersweightlifting.com/masters-records-grand-slam
 user_visible_url: https://usamastersweightlifting.com/masters-records-grand-slam
 filter:
+- re.sub:
+    pattern: 'nonce="[^"]*"'
+    repl: ''
+- re.sub:
+    pattern: 'nonce=''[^'']*'''
+    repl: ''
+- re.sub:
+    pattern: 'nonce=[^\s>]*'
+    repl: ''
+- re.sub:
+    pattern: '<script[^>]*>.*?</script>'
+    repl: ''
+    flags: [DOTALL, IGNORECASE]
+- html2text: re
 - strip:
 
 ---
@@ -38,6 +108,20 @@ name: USA Weightlifting - International Squad Standings
 url: https://www.usaweightlifting.org/resources/athlete-information-and-programs/international-squad-standings
 user_visible_url: https://www.usaweightlifting.org/resources/athlete-information-and-programs/international-squad-standings
 filter:
+- re.sub:
+    pattern: 'nonce="[^"]*"'
+    repl: ''
+- re.sub:
+    pattern: 'nonce=''[^'']*'''
+    repl: ''
+- re.sub:
+    pattern: 'nonce=[^\s>]*'
+    repl: ''
+- re.sub:
+    pattern: '<script[^>]*>.*?</script>'
+    repl: ''
+    flags: [DOTALL, IGNORECASE]
+- html2text: re
 - strip:
 
 ---
@@ -45,6 +129,20 @@ name: USA Weightlifting - Selection Procedures
 url: https://www.usaweightlifting.org/resources/athlete-information-and-programs/selection-procedures
 user_visible_url: https://www.usaweightlifting.org/resources/athlete-information-and-programs/selection-procedures
 filter:
+- re.sub:
+    pattern: 'nonce="[^"]*"'
+    repl: ''
+- re.sub:
+    pattern: 'nonce=''[^'']*'''
+    repl: ''
+- re.sub:
+    pattern: 'nonce=[^\s>]*'
+    repl: ''
+- re.sub:
+    pattern: '<script[^>]*>.*?</script>'
+    repl: ''
+    flags: [DOTALL, IGNORECASE]
+- html2text: re
 - strip:
 
 ---
@@ -52,6 +150,20 @@ name: Wisconsin Weightlifting - Records
 url: https://www.wisconsinweightlifting.org/records
 user_visible_url: https://www.wisconsinweightlifting.org/records
 filter:
+- re.sub:
+    pattern: 'nonce="[^"]*"'
+    repl: ''
+- re.sub:
+    pattern: 'nonce=''[^'']*'''
+    repl: ''
+- re.sub:
+    pattern: 'nonce=[^\s>]*'
+    repl: ''
+- re.sub:
+    pattern: '<script[^>]*>.*?</script>'
+    repl: ''
+    flags: [DOTALL, IGNORECASE]
+- html2text: re
 - strip:
 
 ---
@@ -59,4 +171,18 @@ name: Indiana Weightlifting - State Records
 url: https://www.indianaweightlifting.com/state-records
 user_visible_url: https://www.indianaweightlifting.com/state-records
 filter:
+- re.sub:
+    pattern: 'nonce="[^"]*"'
+    repl: ''
+- re.sub:
+    pattern: 'nonce=''[^'']*'''
+    repl: ''
+- re.sub:
+    pattern: 'nonce=[^\s>]*'
+    repl: ''
+- re.sub:
+    pattern: '<script[^>]*>.*?</script>'
+    repl: ''
+    flags: [DOTALL, IGNORECASE]
+- html2text: re
 - strip:
