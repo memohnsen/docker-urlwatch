@@ -119,52 +119,5 @@ class CustomHtmlFileReporter(reporters.HtmlReporter):
             fp.write('\n'.join(super().submit()))
 
 
-class CustomSlackReporter(reporters.SlackReporter):
-    """Custom Slack reporter with formatted messages"""
-    
-    __kind__ = 'slack'  # This overrides the default Slack reporter
-    
-    def submit(self):
-        """Send a custom formatted Slack message"""
-        import json
-        import requests
-        
-        if not self.new or not self.config.get('webhook_url'):
-            return []
-        
-        # Build a nicely formatted message
-        changes = []
-        for job_state in self.new:
-            job = job_state.job
-            changes.append(f"*{job.get_name()}*\n<{job.get_location()}|View Page>")
-        
-        # Create Slack message payload
-        message = {
-            "text": f"🔔 *{len(self.new)} website(s) updated!*",
-            "blocks": [
-                {
-                    "type": "header",
-                    "text": {
-                        "type": "plain_text",
-                        "text": f"🔔 {len(self.new)} Website Update(s) Detected"
-                    }
-                },
-                {
-                    "type": "section",
-                    "text": {
-                        "type": "mrkdwn",
-                        "text": "\n\n".join(changes)
-                    }
-                }
-            ]
-        }
-        
-        # Send to Slack
-        response = requests.post(
-            self.config['webhook_url'],
-            json=message,
-            headers={'Content-Type': 'application/json'}
-        )
-        response.raise_for_status()
-        
-        return [f"Successfully sent message to Slack"]
+# Custom Slack reporter removed - using default urlwatch SlackReporter
+# The default reporter works well and handles all the job states properly
