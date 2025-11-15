@@ -45,13 +45,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.urlwatch/cache.db
-          key: urlwatch-cache-${{ runner.os }}
+          key: urlwatch-cache-v2-${{ runner.os }}
           restore-keys: |
-            urlwatch-cache-
-      
-      - name: Clear cache (fresh start with new filters)
-        run: |
-          rm -f ~/.urlwatch/cache.db
+            urlwatch-cache-v2-
       
       - name: Run urlwatch
         run: |
@@ -61,5 +57,5 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.urlwatch/cache.db
-          key: urlwatch-cache-${{ runner.os }}-${{ github.run_id }}
+          key: urlwatch-cache-v2-${{ runner.os }}
 
