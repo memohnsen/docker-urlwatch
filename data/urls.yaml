@@ -4,16 +4,19 @@ url: https://www.usaweightlifting.org/american-records
 user_visible_url: https://www.usaweightlifting.org/american-records
 filter:
 - re.sub:
-    pattern: 'nonce="[^"]*"'
-    repl: ''
-- re.sub:
-    pattern: 'nonce=''[^'']*'''
-    repl: ''
-- re.sub:
-    pattern: 'nonce=[^\s>]*'
-    repl: ''
-- re.sub:
     pattern: '(?i)<script[^>]*>[\s\S]*?</script>'
+    repl: ''
+- re.sub:
+    pattern: '\s+nonce="[^"]*"'
+    repl: ''
+- re.sub:
+    pattern: '\s+nonce=''[^'']*'''
+    repl: ''
+- re.sub:
+    pattern: '\s+nonce=[^\s>]*'
+    repl: ''
+- re.sub:
+    pattern: '\s+data-[^=]*="[^"]*"'
     repl: ''
 - html2text: re
 - strip:
@@ -24,16 +27,19 @@ url: https://usamastersweightlifting.com/results
 user_visible_url: https://usamastersweightlifting.com/results
 filter:
 - re.sub:
-    pattern: 'nonce="[^"]*"'
-    repl: ''
-- re.sub:
-    pattern: 'nonce=''[^'']*'''
-    repl: ''
-- re.sub:
-    pattern: 'nonce=[^\s>]*'
-    repl: ''
-- re.sub:
     pattern: '(?i)<script[^>]*>[\s\S]*?</script>'
+    repl: ''
+- re.sub:
+    pattern: '\s+nonce="[^"]*"'
+    repl: ''
+- re.sub:
+    pattern: '\s+nonce=''[^'']*'''
+    repl: ''
+- re.sub:
+    pattern: '\s+nonce=[^\s>]*'
+    repl: ''
+- re.sub:
+    pattern: '\s+data-[^=]*="[^"]*"'
     repl: ''
 - html2text: re
 - strip:
@@ -44,16 +50,19 @@ url: https://usamastersweightlifting.com/qualifying-totals
 user_visible_url: https://usamastersweightlifting.com/qualifying-totals
 filter:
 - re.sub:
-    pattern: 'nonce="[^"]*"'
-    repl: ''
-- re.sub:
-    pattern: 'nonce=''[^'']*'''
-    repl: ''
-- re.sub:
-    pattern: 'nonce=[^\s>]*'
-    repl: ''
-- re.sub:
     pattern: '(?i)<script[^>]*>[\s\S]*?</script>'
+    repl: ''
+- re.sub:
+    pattern: '\s+nonce="[^"]*"'
+    repl: ''
+- re.sub:
+    pattern: '\s+nonce=''[^'']*'''
+    repl: ''
+- re.sub:
+    pattern: '\s+nonce=[^\s>]*'
+    repl: ''
+- re.sub:
+    pattern: '\s+data-[^=]*="[^"]*"'
     repl: ''
 - html2text: re
 - strip:
@@ -64,16 +73,19 @@ url: https://usamastersweightlifting.com/events
 user_visible_url: https://usamastersweightlifting.com/events
 filter:
 - re.sub:
-    pattern: 'nonce="[^"]*"'
-    repl: ''
-- re.sub:
-    pattern: 'nonce=''[^'']*'''
-    repl: ''
-- re.sub:
-    pattern: 'nonce=[^\s>]*'
-    repl: ''
-- re.sub:
     pattern: '(?i)<script[^>]*>[\s\S]*?</script>'
+    repl: ''
+- re.sub:
+    pattern: '\s+nonce="[^"]*"'
+    repl: ''
+- re.sub:
+    pattern: '\s+nonce=''[^'']*'''
+    repl: ''
+- re.sub:
+    pattern: '\s+nonce=[^\s>]*'
+    repl: ''
+- re.sub:
+    pattern: '\s+data-[^=]*="[^"]*"'
     repl: ''
 - html2text: re
 - strip:
@@ -84,16 +96,19 @@ url: https://usamastersweightlifting.com/masters-records-grand-slam
 user_visible_url: https://usamastersweightlifting.com/masters-records-grand-slam
 filter:
 - re.sub:
-    pattern: 'nonce="[^"]*"'
-    repl: ''
-- re.sub:
-    pattern: 'nonce=''[^'']*'''
-    repl: ''
-- re.sub:
-    pattern: 'nonce=[^\s>]*'
-    repl: ''
-- re.sub:
     pattern: '(?i)<script[^>]*>[\s\S]*?</script>'
+    repl: ''
+- re.sub:
+    pattern: '\s+nonce="[^"]*"'
+    repl: ''
+- re.sub:
+    pattern: '\s+nonce=''[^'']*'''
+    repl: ''
+- re.sub:
+    pattern: '\s+nonce=[^\s>]*'
+    repl: ''
+- re.sub:
+    pattern: '\s+data-[^=]*="[^"]*"'
     repl: ''
 - html2text: re
 - strip:
@@ -104,16 +119,19 @@ url: https://www.usaweightlifting.org/resources/athlete-information-and-programs
 user_visible_url: https://www.usaweightlifting.org/resources/athlete-information-and-programs/international-squad-standings
 filter:
 - re.sub:
-    pattern: 'nonce="[^"]*"'
-    repl: ''
-- re.sub:
-    pattern: 'nonce=''[^'']*'''
-    repl: ''
-- re.sub:
-    pattern: 'nonce=[^\s>]*'
-    repl: ''
-- re.sub:
     pattern: '(?i)<script[^>]*>[\s\S]*?</script>'
+    repl: ''
+- re.sub:
+    pattern: '\s+nonce="[^"]*"'
+    repl: ''
+- re.sub:
+    pattern: '\s+nonce=''[^'']*'''
+    repl: ''
+- re.sub:
+    pattern: '\s+nonce=[^\s>]*'
+    repl: ''
+- re.sub:
+    pattern: '\s+data-[^=]*="[^"]*"'
     repl: ''
 - html2text: re
 - strip:
@@ -124,16 +142,19 @@ url: https://www.usaweightlifting.org/resources/athlete-information-and-programs
 user_visible_url: https://www.usaweightlifting.org/resources/athlete-information-and-programs/selection-procedures
 filter:
 - re.sub:
-    pattern: 'nonce="[^"]*"'
-    repl: ''
-- re.sub:
-    pattern: 'nonce=''[^'']*'''
-    repl: ''
-- re.sub:
-    pattern: 'nonce=[^\s>]*'
-    repl: ''
-- re.sub:
     pattern: '(?i)<script[^>]*>[\s\S]*?</script>'
+    repl: ''
+- re.sub:
+    pattern: '\s+nonce="[^"]*"'
+    repl: ''
+- re.sub:
+    pattern: '\s+nonce=''[^'']*'''
+    repl: ''
+- re.sub:
+    pattern: '\s+nonce=[^\s>]*'
+    repl: ''
+- re.sub:
+    pattern: '\s+data-[^=]*="[^"]*"'
     repl: ''
 - html2text: re
 - strip:
@@ -144,16 +165,19 @@ url: https://www.wisconsinweightlifting.org/records
 user_visible_url: https://www.wisconsinweightlifting.org/records
 filter:
 - re.sub:
-    pattern: 'nonce="[^"]*"'
-    repl: ''
-- re.sub:
-    pattern: 'nonce=''[^'']*'''
-    repl: ''
-- re.sub:
-    pattern: 'nonce=[^\s>]*'
-    repl: ''
-- re.sub:
     pattern: '(?i)<script[^>]*>[\s\S]*?</script>'
+    repl: ''
+- re.sub:
+    pattern: '\s+nonce="[^"]*"'
+    repl: ''
+- re.sub:
+    pattern: '\s+nonce=''[^'']*'''
+    repl: ''
+- re.sub:
+    pattern: '\s+nonce=[^\s>]*'
+    repl: ''
+- re.sub:
+    pattern: '\s+data-[^=]*="[^"]*"'
     repl: ''
 - html2text: re
 - strip:
@@ -164,16 +188,19 @@ url: https://www.indianaweightlifting.com/state-records
 user_visible_url: https://www.indianaweightlifting.com/state-records
 filter:
 - re.sub:
-    pattern: 'nonce="[^"]*"'
-    repl: ''
-- re.sub:
-    pattern: 'nonce=''[^'']*'''
-    repl: ''
-- re.sub:
-    pattern: 'nonce=[^\s>]*'
-    repl: ''
-- re.sub:
     pattern: '(?i)<script[^>]*>[\s\S]*?</script>'
+    repl: ''
+- re.sub:
+    pattern: '\s+nonce="[^"]*"'
+    repl: ''
+- re.sub:
+    pattern: '\s+nonce=''[^'']*'''
+    repl: ''
+- re.sub:
+    pattern: '\s+nonce=[^\s>]*'
+    repl: ''
+- re.sub:
+    pattern: '\s+data-[^=]*="[^"]*"'
     repl: ''
 - html2text: re
 - strip:
