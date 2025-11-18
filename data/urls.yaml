@@ -1,189 +1,77 @@
 ---
-name: USA Weightlifting - American Records
+name: USAW American Records
 url: https://www.usaweightlifting.org/american-records
 user_visible_url: https://www.usaweightlifting.org/american-records
 filter:
-- re.sub:
-    pattern: '(?i)<script[^>]*>[\s\S]*?</script>'
-    repl: ''
-- re.sub:
-    pattern: '\s+nonce="[^"]*"'
-    repl: ''
-- re.sub:
-    pattern: '\s+nonce=''[^'']*'''
-    repl: ''
-- re.sub:
-    pattern: '\s+nonce=[^\s>]*'
-    repl: ''
-- re.sub:
-    pattern: '\s+data-[^=]*="[^"]*"'
-    repl: ''
+- xpath: //*[@id="cscc879304a10a7340"]/div
 - html2text: re
 - strip:
 
 ---
-name: USA Masters Weightlifting - Results
+name: USAMW Results
 url: https://usamastersweightlifting.com/results
 user_visible_url: https://usamastersweightlifting.com/results
 filter:
-- re.sub:
-    pattern: '(?i)<script[^>]*>[\s\S]*?</script>'
-    repl: ''
-- re.sub:
-    pattern: '\s+nonce="[^"]*"'
-    repl: ''
-- re.sub:
-    pattern: '\s+nonce=''[^'']*'''
-    repl: ''
-- re.sub:
-    pattern: '\s+nonce=[^\s>]*'
-    repl: ''
-- re.sub:
-    pattern: '\s+data-[^=]*="[^"]*"'
-    repl: ''
+- xpath: /html/body/div[1]/div/content/div/section[2]
 - html2text: re
 - strip:
 
 ---
-name: USA Masters Weightlifting - Qualifying Totals
+name: USAMW Qualifying Totals
 url: https://usamastersweightlifting.com/qualifying-totals
 user_visible_url: https://usamastersweightlifting.com/qualifying-totals
 filter:
-- re.sub:
-    pattern: '(?i)<script[^>]*>[\s\S]*?</script>'
-    repl: ''
-- re.sub:
-    pattern: '\s+nonce="[^"]*"'
-    repl: ''
-- re.sub:
-    pattern: '\s+nonce=''[^'']*'''
-    repl: ''
-- re.sub:
-    pattern: '\s+nonce=[^\s>]*'
-    repl: ''
-- re.sub:
-    pattern: '\s+data-[^=]*="[^"]*"'
-    repl: ''
+- xpath: /html/body/div[1]/div/content/div/section[2]
 - html2text: re
 - strip:
 
 ---
-name: USA Masters Weightlifting - Events
+name: USAMW Events
 url: https://usamastersweightlifting.com/events
 user_visible_url: https://usamastersweightlifting.com/events
 filter:
-- re.sub:
-    pattern: '(?i)<script[^>]*>[\s\S]*?</script>'
-    repl: ''
-- re.sub:
-    pattern: '\s+nonce="[^"]*"'
-    repl: ''
-- re.sub:
-    pattern: '\s+nonce=''[^'']*'''
-    repl: ''
-- re.sub:
-    pattern: '\s+nonce=[^\s>]*'
-    repl: ''
-- re.sub:
-    pattern: '\s+data-[^=]*="[^"]*"'
-    repl: ''
+- xpath: /html/body/div[1]/div/content/div/section[2]
 - html2text: re
 - strip:
 
 ---
-name: USA Masters Weightlifting - Masters Records & Grand Slam
+name: USAMW Masters Records
 url: https://usamastersweightlifting.com/masters-records-grand-slam
 user_visible_url: https://usamastersweightlifting.com/masters-records-grand-slam
 filter:
-- re.sub:
-    pattern: '(?i)<script[^>]*>[\s\S]*?</script>'
-    repl: ''
-- re.sub:
-    pattern: '\s+nonce="[^"]*"'
-    repl: ''
-- re.sub:
-    pattern: '\s+nonce=''[^'']*'''
-    repl: ''
-- re.sub:
-    pattern: '\s+nonce=[^\s>]*'
-    repl: ''
-- re.sub:
-    pattern: '\s+data-[^=]*="[^"]*"'
-    repl: ''
+- xpath: /html/body/div[1]/div/content/div/section[2]/div[2]/div/div[2]/div
 - html2text: re
 - strip:
 
 ---
-name: USA Weightlifting - International Squad Standings
+name: USAW International Rankings
 url: https://www.usaweightlifting.org/resources/athlete-information-and-programs/international-squad-standings
 user_visible_url: https://www.usaweightlifting.org/resources/athlete-information-and-programs/international-squad-standings
 filter:
-- re.sub:
-    pattern: '(?i)<script[^>]*>[\s\S]*?</script>'
-    repl: ''
-- re.sub:
-    pattern: '\s+nonce="[^"]*"'
-    repl: ''
-- re.sub:
-    pattern: '\s+nonce=''[^'']*'''
-    repl: ''
-- re.sub:
-    pattern: '\s+nonce=[^\s>]*'
-    repl: ''
-- re.sub:
-    pattern: '\s+data-[^=]*="[^"]*"'
-    repl: ''
+- xpath: //*[@id="main-content"]
 - html2text: re
 - strip:
 
 ---
-name: USA Weightlifting - Selection Procedures
+name: USAW Standards
 url: https://www.usaweightlifting.org/resources/athlete-information-and-programs/selection-procedures
 user_visible_url: https://www.usaweightlifting.org/resources/athlete-information-and-programs/selection-procedures
 filter:
-- re.sub:
-    pattern: '(?i)<script[^>]*>[\s\S]*?</script>'
-    repl: ''
-- re.sub:
-    pattern: '\s+nonce="[^"]*"'
-    repl: ''
-- re.sub:
-    pattern: '\s+nonce=''[^'']*'''
-    repl: ''
-- re.sub:
-    pattern: '\s+nonce=[^\s>]*'
-    repl: ''
-- re.sub:
-    pattern: '\s+data-[^=]*="[^"]*"'
-    repl: ''
+- xpath: //*[@id="abb3c5c08be7439cad96fd7c3aa3515b"]/div/div
 - html2text: re
 - strip:
 
 ---
-name: Wisconsin Weightlifting - Records
+name: Wisconsin WSO Records
 url: https://www.wisconsinweightlifting.org/records
 user_visible_url: https://www.wisconsinweightlifting.org/records
 filter:
-- re.sub:
-    pattern: '(?i)<script[^>]*>[\s\S]*?</script>'
-    repl: ''
-- re.sub:
-    pattern: '\s+nonce="[^"]*"'
-    repl: ''
-- re.sub:
-    pattern: '\s+nonce=''[^'']*'''
-    repl: ''
-- re.sub:
-    pattern: '\s+nonce=[^\s>]*'
-    repl: ''
-- re.sub:
-    pattern: '\s+data-[^=]*="[^"]*"'
-    repl: ''
+- xpath: //*[@id="page-534c7c72e4b0c7d91a223355"]
 - html2text: re
 - strip:
 
 ---
-name: Indiana Weightlifting - State Records
+name: Indiana WSO Records
 url: https://www.indianaweightlifting.com/state-records
 user_visible_url: https://www.indianaweightlifting.com/state-records
 filter:
