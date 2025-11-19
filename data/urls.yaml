@@ -4,8 +4,16 @@ name: USAW American Records
 url: https://www.usaweightlifting.org/american-records
 user_visible_url: https://www.usaweightlifting.org/american-records
 filter:
-- xpath: //*[@id="cscc879304a10a7340"]/div
-- html2text: re
+- css:
+    selector: 'style, script, nav, footer, [class*="menu"]'
+    method: remove
+- xpath:
+    path: '//h1 | //h2 | //h3 | //p | //table | //a[contains(@href, ".pdf")]'
+    method: html
+- html2text:
+    unicode_snob: true
+    body_width: 0
+    ignore_links: false
 - strip:
 
 ---
@@ -14,8 +22,16 @@ name: USAMW Results
 url: https://usamastersweightlifting.com/results
 user_visible_url: https://usamastersweightlifting.com/results
 filter:
-- xpath: /html/body/div[1]/div/content/div/section[2]
-- html2text: re
+- css:
+    selector: 'style, script, nav, footer, [class*="menu"]'
+    method: remove
+- xpath:
+    path: '//h1 | //h2 | //h3 | //p | //table | //a[contains(@href, ".pdf")]'
+    method: html
+- html2text:
+    unicode_snob: true
+    body_width: 0
+    ignore_links: false
 - strip:
 
 ---
@@ -24,8 +40,16 @@ name: USAMW Qualifying Totals
 url: https://usamastersweightlifting.com/qualifying-totals
 user_visible_url: https://usamastersweightlifting.com/qualifying-totals
 filter:
-- xpath: /html/body/div[1]/div/content/div/section[2]
-- html2text: re
+- css:
+    selector: 'style, script, nav, footer, [class*="menu"]'
+    method: remove
+- xpath:
+    path: '//h1 | //h2 | //h3 | //p | //a[contains(@href, ".pdf")]'
+    method: html
+- html2text:
+    unicode_snob: true
+    body_width: 0
+    ignore_links: false
 - strip:
 
 ---
@@ -34,8 +58,16 @@ name: USAMW Events
 url: https://usamastersweightlifting.com/events
 user_visible_url: https://usamastersweightlifting.com/events
 filter:
-- xpath: /html/body/div[1]/div/content/div/section[2]
-- html2text: re
+- css:
+    selector: 'style, script, nav, footer, [class*="menu"]'
+    method: remove
+- xpath:
+    path: '//h1 | //h2 | //h3 | //p | //table | //a[contains(@href, ".pdf")]'
+    method: html
+- html2text:
+    unicode_snob: true
+    body_width: 0
+    ignore_links: false
 - strip:
 
 ---
@@ -44,8 +76,16 @@ name: USAMW Masters Records
 url: https://usamastersweightlifting.com/masters-records-grand-slam
 user_visible_url: https://usamastersweightlifting.com/masters-records-grand-slam
 filter:
-- xpath: /html/body/div[1]/div/content/div/section[2]/div[2]/div/div[2]/div
-- html2text: re
+- css:
+    selector: 'style, script, nav, footer, [class*="menu"]'
+    method: remove
+- xpath:
+    path: '//h1 | //h2 | //h3 | //p | //table | //a[contains(@href, ".pdf")]'
+    method: html
+- html2text:
+    unicode_snob: true
+    body_width: 0
+    ignore_links: false
 - strip:
 
 ---
@@ -54,8 +94,16 @@ name: USAW International Rankings
 url: https://www.usaweightlifting.org/resources/athlete-information-and-programs/international-squad-standings
 user_visible_url: https://www.usaweightlifting.org/resources/athlete-information-and-programs/international-squad-standings
 filter:
-- xpath: //*[@id="main-content"]
-- html2text: re
+- css:
+    selector: 'style, script, nav, footer, [class*="menu"]'
+    method: remove
+- xpath:
+    path: '//h1 | //h2 | //h3 | //p | //table | //a[contains(@href, ".pdf")]'
+    method: html
+- html2text:
+    unicode_snob: true
+    body_width: 0
+    ignore_links: false
 - strip:
 
 ---
@@ -63,8 +111,16 @@ name: USAW Standards
 url: https://www.usaweightlifting.org/resources/athlete-information-and-programs/selection-procedures
 user_visible_url: https://www.usaweightlifting.org/resources/athlete-information-and-programs/selection-procedures
 filter:
-- xpath: //*[@id="abb3c5c08be7439cad96fd7c3aa3515b"]/div/div
-- html2text: re
+- css:
+    selector: 'style, script, nav, footer, [class*="menu"]'
+    method: remove
+- xpath:
+    path: '//h1 | //h2 | //h3 | //p | //table | //a[contains(@href, ".pdf")]'
+    method: html
+- html2text:
+    unicode_snob: true
+    body_width: 0
+    ignore_links: false
 - strip:
 
 ---
@@ -73,8 +129,16 @@ name: California North Central WSO Records
 url: https://www.pacificweightliftingassociation.org/pwa-records
 user_visible_url: https://www.pacificweightliftingassociation.org/pwa-records
 filter:
-- xpath: //*[@id="content"]/div[2]/div[1]
-- html2text: re
+- css:
+    selector: 'style, script, nav, footer, [class*="menu"]'
+    method: remove
+- xpath:
+    path: '//h1 | //h2 | //h3 | //p | //table | //a[contains(@href, ".pdf")]'
+    method: html
+- html2text:
+    unicode_snob: true
+    body_width: 0
+    ignore_links: false
 - strip:
 
 ---
@@ -83,8 +147,16 @@ name: California South WSO Records
 url: https://www.californiasouthwso.org/resources
 user_visible_url: https://www.californiasouthwso.org/resources
 filter:
-- xpath: //*[@id="yui_3_17_2_1_1763498694379_1413"]
-- html2text: re
+- css:
+    selector: 'style, script, nav, footer, [class*="menu"]'
+    method: remove
+- xpath:
+    path: '//h1 | //h2 | //h3 | //p | //table | //a[contains(@href, ".pdf")]'
+    method: html
+- html2text:
+    unicode_snob: true
+    body_width: 0
+    ignore_links: false
 - strip:
 
 ---
@@ -93,8 +165,16 @@ name: Illinois WSO Records
 url: https://www.illinoisweightlifting.com/
 user_visible_url: https://www.illinoisweightlifting.com/
 filter:
-- xpath: //*[@id="yui_3_17_2_1_1763498876492_78"]
-- html2text: re
+- css:
+    selector: 'style, script, nav, footer, [class*="menu"]'
+    method: remove
+- xpath:
+    path: '//h1 | //h2 | //h3 | //p | //table | //a[contains(@href, ".pdf")]'
+    method: html
+- html2text:
+    unicode_snob: true
+    body_width: 0
+    ignore_links: false
 - strip:
 
 ---
@@ -103,22 +183,16 @@ name: Indiana WSO Records
 url: https://www.indianaweightlifting.com/state-records
 user_visible_url: https://www.indianaweightlifting.com/state-records
 filter:
-- re.sub:
-    pattern: '(?i)<script[^>]*>[\s\S]*?</script>'
-    repl: ''
-- re.sub:
-    pattern: '\s+nonce="[^"]*"'
-    repl: ''
-- re.sub:
-    pattern: '\s+nonce=''[^'']*'''
-    repl: ''
-- re.sub:
-    pattern: '\s+nonce=[^\s>]*'
-    repl: ''
-- re.sub:
-    pattern: '\s+data-[^=]*="[^"]*"'
-    repl: ''
-- html2text: re
+- css:
+    selector: 'style, script, nav, footer, [class*="menu"]'
+    method: remove
+- xpath:
+    path: '//h1 | //h2 | //h3 | //p | //table | //a[contains(@href, ".pdf")]'
+    method: html
+- html2text:
+    unicode_snob: true
+    body_width: 0
+    ignore_links: false
 - strip:
 
 ---
@@ -127,8 +201,16 @@ name: Michigan WSO Records
 url: https://www.michiganweightlifting.com/state-records
 user_visible_url: https://www.michiganweightlifting.com/state-records
 filter:
-- xpath: //*[@id="page-5c341a69032be40b1b869edb"]/div/div/div/div[2]
-- html2text: re
+- css:
+    selector: 'style, script, nav, footer, [class*="menu"]'
+    method: remove
+- xpath:
+    path: '//h1 | //h2 | //h3 | //p | //table | //a[contains(@href, ".pdf")]'
+    method: html
+- html2text:
+    unicode_snob: true
+    body_width: 0
+    ignore_links: false
 - strip:
 
 ---
@@ -137,8 +219,16 @@ name: Missouri Valley WSO Records
 url: https://missourivalleyweightlifting.org/records/
 user_visible_url: https://missourivalleyweightlifting.org/records/
 filter:
-- xpath: //*[@id="post-146"]/div/div
-- html2text: re
+- css:
+    selector: 'style, script, nav, footer, [class*="menu"]'
+    method: remove
+- xpath:
+    path: '//h1 | //h2 | //h3 | //p | //table | //a[contains(@href, ".pdf")]'
+    method: html
+- html2text:
+    unicode_snob: true
+    body_width: 0
+    ignore_links: false
 - strip:
 
 ---
@@ -147,8 +237,16 @@ name: Mountain South WSO Records
 url: https://mountainsouth.org/records/
 user_visible_url: https://mountainsouth.org/records/
 filter:
-- xpath: //*[@id="post-40"]/comment()[2]
-- html2text: re
+- css:
+    selector: 'style, script, nav, footer, [class*="menu"]'
+    method: remove
+- xpath:
+    path: '//h1 | //h2 | //h3 | //p | //table | //a[contains(@href, ".pdf")]'
+    method: html
+- html2text:
+    unicode_snob: true
+    body_width: 0
+    ignore_links: false
 - strip:
 
 ---
@@ -157,8 +255,16 @@ name: New England WSO Records
 url: https://www.newenglandweightlifting.com/records
 user_visible_url: https://www.newenglandweightlifting.com/records
 filter:
-- xpath: //*[@id="comp-ln3aum36"]/div[2]/div
-- html2text: re
+- css:
+    selector: 'style, script, nav, footer, [class*="menu"]'
+    method: remove
+- xpath:
+    path: '//h1 | //h2 | //h3 | //p | //table | //a[contains(@href, ".pdf")]'
+    method: html
+- html2text:
+    unicode_snob: true
+    body_width: 0
+    ignore_links: false
 - strip:
 
 ---
@@ -167,8 +273,16 @@ name: New York WSO Records
 url: https://www.nywso.com/state-records
 user_visible_url: https://www.nywso.com/state-records
 filter:
-- xpath: //*[@id="comp-lfzj9whb"]/div[2]/div
-- html2text: re
+- css:
+    selector: 'style, script, nav, footer, [class*="menu"]'
+    method: remove
+- xpath:
+    path: '//h1 | //h2 | //h3 | //p | //table | //a[contains(@href, ".pdf")]'
+    method: html
+- html2text:
+    unicode_snob: true
+    body_width: 0
+    ignore_links: false
 - strip:
 
 ---
@@ -177,8 +291,16 @@ name: Ohio WSO Records
 url: https://www.ohiowso.org/ohio-wso-records
 user_visible_url: https://www.ohiowso.org/ohio-wso-records
 filter:
-- xpath: //*[@id="page-section-6671d9ac0e34e824cc439f38"]/div
-- html2text: re
+- css:
+    selector: 'style, script, nav, footer, [class*="menu"]'
+    method: remove
+- xpath:
+    path: '//h1 | //h2 | //h3 | //p | //table | //a[contains(@href, ".pdf")]'
+    method: html
+- html2text:
+    unicode_snob: true
+    body_width: 0
+    ignore_links: false
 - strip:
 
 ---
@@ -187,8 +309,16 @@ name: Pacific Northwest WSO Records
 url: https://www.pnwwsoweightlifting.com/records-/-results
 user_visible_url: https://www.pnwwsoweightlifting.com/records-/-results
 filter:
-- xpath: //*[@id="page-section-626c6e92cdc9c255bd78e0aa"]/div/div
-- html2text: re
+- css:
+    selector: 'style, script, nav, footer, [class*="menu"]'
+    method: remove
+- xpath:
+    path: '//h1 | //h2 | //h3 | //p | //table | //a[contains(@href, ".pdf")]'
+    method: html
+- html2text:
+    unicode_snob: true
+    body_width: 0
+    ignore_links: false
 - strip:
 
 ---
@@ -197,8 +327,16 @@ name: Tennessee-Kentucky WSO Records
 url: https://www.tnkyweightlifting.com/recordss
 user_visible_url: https://www.tnkyweightlifting.com/records
 filter:
-- xpath: //*[@id="yui_3_17_2_1_1763499835016_75"]
-- html2text: re
+- css:
+    selector: 'style, script, nav, footer, [class*="menu"]'
+    method: remove
+- xpath:
+    path: '//h1 | //h2 | //h3 | //p | //table | //a[contains(@href, ".pdf")]'
+    method: html
+- html2text:
+    unicode_snob: true
+    body_width: 0
+    ignore_links: false
 - strip:
 
 ---
@@ -207,8 +345,16 @@ name: Wisconsin WSO Records
 url: https://www.wisconsinweightlifting.org/records
 user_visible_url: https://www.wisconsinweightlifting.org/records
 filter:
-- xpath: //*[@id="page-534c7c72e4b0c7d91a223355"]
-- html2text: re
+- css:
+    selector: 'style, script, nav, footer, [class*="menu"]'
+    method: remove
+- xpath:
+    path: '//h1 | //h2 | //h3 | //p | //table | //a[contains(@href, ".pdf")]'
+    method: html
+- html2text:
+    unicode_snob: true
+    body_width: 0
+    ignore_links: false
 - strip:
 
 ---
